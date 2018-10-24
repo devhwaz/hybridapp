@@ -1,0 +1,41 @@
+header{
+    background-color: skyblue;
+}
+.wrap{
+    background-color: blue;
+}
+footer{
+    background-color:skyblue;
+    clear: both;
+}
+.left,.right,.rright{
+    float:left;
+    height: 200px;
+}
+.left{
+    width: 17%;
+    background-color: #3890b5;
+    margin-right: 3%;
+}
+.right{
+    width:60%;
+    background-color: aquamarine;
+    text-align: center;
+}
+.rright{
+    width: 17%;
+    background-color: #3890b5;
+    margin-left: 3%;
+}
+li{
+    list-style:none;
+}
+.right h2{
+    position: relative;
+}
+.right .emoticon{
+    position: absolute;
+    top: 0px;
+    right: 25%;
+    color: white;
+}
