@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>null,undefined</title>
+</head>
+<body>   
+    <script>
+        var myVar, myVar2 = null;
+    
+        console.log( myVar + ", " + myVar2 );
+        console.log( myVar == myVar2 );
+        console.log( myVar === myVar2 );  
+        
+        v = "This is Test";
+        console.log( typeof v );
+
+        v = 20;
+        console.log( typeof v );
+        
+        console.log("Boolean 자료형 변환");
+        console.log(Boolean(0));
+        console.log(Boolean(NaN));
+        console.log(Boolean(''));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+
+        console.log("== vs ===")
+        console.log("== ")
+        console.log('' == false);
+        console.log('' == 0);
+        console.log(0 == false);
+        console.log('273' == 273);
+        
+        console.log(" ===")
+        console.log('' === false);
+        console.log('' === 0);
+        console.log(0 === false);
+        console.log('273' === 273);
+        
+    </script>
+</body>
+</html>

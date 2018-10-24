@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>호이스팅</title>
+</head>
+<body>   
+    <script>
+        console.log(ho); //Uncaught ReferenceError: ho is not defined
+        
+        //var ho;  //undefined
+        //let ho;
+
+        foo(); // "bar"
+
+        function foo() {
+        console.log('bar');
+        }
+
+
+        baz(); // TypeError: baz is not a function
+
+        var baz = function() {
+        console.log('bar2');
+        };
+        
+    </script>
+</body>
+</html>

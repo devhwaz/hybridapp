@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수재정의
+        funcA();
+        function funcA() { alert('함수 A'); }
+        function funcA() { alert('함수 B'); }
+        
+
+        funcB();
+        var funcB = function () { alert('함수 A'); };
+        var funcB = function () { alert('함수 B'); };
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
