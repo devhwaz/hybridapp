@@ -8,6 +8,16 @@
 
         // 조건문
         (number > 0) ? alert('자연수입니다.') : alert('자연수가 아닙니다.');
+    
+        var now = new Date();
+        var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
+         
+        var now = new Date();
+        var greeting = "Good";
+        if (now.getHours() > 17)
+            greeting += " evening.";
+        else
+            greeting += " day.";
     </script>
 </head>
 <body>

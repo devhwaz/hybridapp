@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+</head>
+<body>
+    <script>
+       var student = {
+            이름: '강경미',
+            국어: 99, 수학: 98,
+            영어: 96, 과학: 98
+        };
+
+        // in 키워드 (객체 안에 해당 키가 있는지 확인)
+        console.log("student 객체 안에 이름 속성이있습니까?"+('이름' in student));
+        console.log("student 객체 안에 성별 속성이있습니까?"+('성별' in student));
+       
+
+        // 출력
+        var output = '';
+        output += '이름: ' + student.이름 + '<br>';
+        output += '국어: ' + student.국어 + '<br>';
+        output += '수학: ' + student.수학 + '<br>';
+        output += '영어: ' + student.영어 + '<br>';
+        output += '과학: ' + student.과학 + '<br>';
+        output += '총점: ' + (student.국어 + student.수학 + student.영어 + student.과학);
+        document.write(output);
+
+        output='';
+         with (student) {
+            output += '이름: ' + 이름 + '\n';
+            output += '국어: ' + 국어 + '\n';
+            output += '수학: ' + 수학 + '\n';
+            output += '영어: ' + 영어 + '\n';
+            output += '과학: ' + 과학 + '\n';
+            output += '총점: ' + (국어 + 수학 + 영어 + 과학);
+        }
+        alert(output);
+     </script>
+</body>
+</html>

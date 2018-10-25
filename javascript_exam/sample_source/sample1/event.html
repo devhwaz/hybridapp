@@ -13,8 +13,7 @@
 
 </head>
 <body>
-<!-- <div onmousedown="mDown(this)" onmouseup="mUp(this)" 
-  style="background-color:#D94A38;width:90px;height:20px;padding:40px;">클릭하세요!</div> -->
+<!-- <div onmousedown="mDown(this)" onmouseup="mUp(this)" >클릭하세요!</div> -->
 <div>클릭하세요.</div>
 <script>
     // function mDown( obj ) {
@@ -25,12 +24,13 @@
     //   obj.style.backgroundColor="#D94A38";
     //   obj.innerHTML="클릭하세요!";
     // }
+    var msg = prompt("메시지를 입력하세요.");
     const mybox = document.querySelector('div');
-    mybox.onmousedown = function(){
+    mybox.onmousedown = mouseDown;
+    function mouseDown(){
       mybox.style.backgroundColor="#1ec5e5";
       mybox.innerHTML="버튼을 떼주세요.";
     }
-    
     mybox.onmouseup =function (){
       mybox.style.backgroundColor="#D94A38";
       mybox.innerHTML="클릭하세요!";

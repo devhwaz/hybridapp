@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+       //실행하면 결과가 어떻게 나올까요?
+       var arr = []
+        for(var i = 0; i < 5; i++){
+            arr[i] = function(){
+                return i;
+            }
+        }
+        for(var index in arr) {
+            console.log(arr[index]());
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

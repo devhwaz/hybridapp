@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+       //ex20 해결 방법
+       var arr = []
+        for(var i = 0; i < 5; i++){
+            arr[i] = function(id) {
+                return function(){
+                    return id;
+                }
+            }(i);
+        }
+        for(var index in arr) {
+            console.log(arr[index]());
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

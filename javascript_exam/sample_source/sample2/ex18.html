@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+       // 클로저 
+
+       //외부함수
+       function test(name) {
+            var output = 'Hello ' + name + ' .. !';
+            //내부함수 (외부함수에서 선언한 변수를 내부함수에서 사용 할 수 있음!)
+            return function () {
+                alert(output);
+            };
+        }
+
+        // 함수 호출.  (함수를 리턴받았으므로 ()로 리턴받은 함수 실행.)
+       test('JavaScript')();
+        
+       //리턴된 함수를 변수에 할당
+       var closure = test('JavaScript');
+       closure();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

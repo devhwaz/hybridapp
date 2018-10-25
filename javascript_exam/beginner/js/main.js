@@ -1,32 +1,36 @@
 var headline = document.querySelector("h1");
-headline.innerHTML = "Hello javaScript~~";
+// console.log(headline);
+// console.log(headline.innerHTML );
+var text =headline.innerHTML ;
+headline.innerHTML =text+" hahah";
 
-var jsImage = document.querySelector("img");
-jsImage.onclick = function(){
-    var mySrc = jsImage.getAttribute("src");
-    if(mySrc === "img/js_logo.png"){
-        jsImage.setAttribute('src',"img/js_logo2.png");
+var jsImg = document.querySelector("img");
+
+
+jsImg.onclick = imgChange;
+function imgChange(){
+    var mysrc = jsImg.getAttribute("src");
+    if(mysrc === "img/js_logo.png"){
+        jsImg.setAttribute('src',"img/js_logo2.png");
     }else{
-        jsImage.setAttribute('src','img/js_logo.png');
+        jsImg.setAttribute('src','img/js_logo.png');
     }
 }
 
-var mybtn = document.querySelector('button');
-var msgbox = document.querySelector(".message");
+var mybtn = document.querySelector("button");
 
-function setChangeMessage(){
-    let mymsg = prompt('메시지를 입력해 주세요');
-    localStorage.setItem('nmsg',mymsg);
-    msgbox.innerHTML=mymsg;
+function setChangMessage(){
+    var newMsg = prompt("새로운 메시지를 입력하세요.");
+    localStorage.setItem("msg",newMsg);
+    document.querySelector(".message").innerHTML=newMsg;   
 }
-
 mybtn.onclick = function(){
-    setChangeMessage();
+    setChangMessage();
 }
 
-if(!localStorage.getItem('nmsg')) {
-    setChangeMessage();    
-  } else {
-    var storedName = localStorage.getItem('nmsg');
-    msgbox.innerHTML = storedName;   
-  }
+if(!localStorage.getItem("msg")){
+    setChangMessage();
+}else{
+    var storeName = localStorage.getItem("msg");
+    document.querySelector(".message").innerHTML = storeName;
+}

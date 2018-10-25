@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+       
+    </script>
+</head>
+<body>
+        <script>
+                // 인코딩할 URL을 만듭니다.
+                var URI = 'http://naver.co.kr?name=강경미.';
+                 
+                 // 출력할 문자열을 만듭니다.
+                 var output = '';
+                 output += 'escape()<br>'
+                 output += escape(URI) + '<br><br>';
+                 output += 'encodeURI()<br>'
+                 output += encodeURI(URI) + '<br><br>';
+                 output += 'encodeURIComponent()<br>'
+                 output += encodeURIComponent(URI);
+         
+                 // 출력합니다.
+                 document.write(output);
+             </script>
+</body>
+</html>

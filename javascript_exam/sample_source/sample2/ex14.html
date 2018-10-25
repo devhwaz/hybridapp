@@ -2,7 +2,21 @@
 <html>
 <head>
     <script>
-       
+       // 콜백함수 : 매개변수로 전달하는 전달하는 함수 (함수도 자료형이므로 가능)
+       function callTenTimes(callback) {
+            for (var i = 0; i < 10; i++) {
+                // 매개 변수로 전달된 함수호출
+                callback();
+            }
+        }
+
+        //익명함수를 선언하여 callback 변수에 할당
+        var callback = function () {
+            alert('함수 호출');
+        };
+
+        // 함수호출
+        callTenTimes(callback);
     </script>
 </head>
 <body>
