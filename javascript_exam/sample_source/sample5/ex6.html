@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+</head>
+<body>
+    <h1 id="header-1" class='b'>javaScript</h1>
+    <h1 id="header-2" >javaScript</h1>
+    <h1 class='b' >javaScript</h1>
+
+     <script> 
+        let header1 = document.getElementById('header-1');
+        let header2 = document.getElementsByTagName('h1');
+        let header3 = document.getElementsByClassName('b');
+        let header4 = document.querySelector('.b');
+
+    
+        header1.innerHTML = 'with getElementById()'; 
+        header2[1].innerHTML = 'with getElementsByTagName()';
+        header3[1].innerHTML='with getElementsByClassName()';
+        header4.innerHTML='with querySelector()';
+       
+        console.log(header3);
+        console.log(header4);
+
+
+
+     </script>
+</body>
+</html>

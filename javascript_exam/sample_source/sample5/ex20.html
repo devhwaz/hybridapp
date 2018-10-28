@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <form id="my-form"  action="ex21.html">
+        <label for="name">이름</label><br/>
+        <input type="text" name="name" id="name" /><br/>
+        <label for="pass">비밀번호</label><br/>
+        <input type="password" name="pass" id="pass" /><br/>
+        <label for="pass-check">비밀번호 확인</label><br/>
+        <input type="password" id="pass-check" /><br/>
+        <input type="submit" value="제출" />
+    </form>
+
+    <script>
+       // document.getElementById('my-form').onsubmit = formEvent;
+        document.getElementById('my-form').addEventListener('submit', formEvent);
+        function formEvent(evt) {
+            // 변수를 선언합니다.
+            var pass = document.getElementById('pass').value;
+            var passCheck = document.getElementById('pass-check').value;
+
+            // 비밀번호가 같은지 확인합니다.
+            if (pass == passCheck) {
+                alert('성공');
+            } else {
+               evt.preventDefault();  //addEventListener로 등록했을때 return false가 제대로 동작하지 않아서 추가
+                alert('다시 입력해주세요.');
+                return false;
+            }
+        };
+     
+    
+    </script>
+</body>
+</html>

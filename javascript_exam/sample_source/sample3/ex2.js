@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-   
-</head>
-<body>
-    <script>
-       /* function을 이용한 여러 객체 생성 방법 */
+/* function을 이용한 여러 객체 생성 방법 */
 
 var Foo = function( name, nick ) {
 	this.name = name;
@@ -28,7 +21,3 @@ foo1.doFoo();
 foo2.doFoo();
 
 foo1.f();
-
-     </script>
-</body>
-</html>

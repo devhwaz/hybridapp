@@ -2,7 +2,17 @@
 <html>
 <head>
     <script>
-       
+        //익명 콜백 함수 
+       function callTenTimes(callback) {
+            for (var i = 0; i < 10; i++) {
+                callback();
+            }
+        }
+
+        // 함수의 매개변수에 익명함수 직접입력
+        callTenTimes(function () {
+            alert('함수 호출');
+        });
     </script>
 </head>
 <body>

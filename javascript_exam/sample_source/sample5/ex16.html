@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>이벤트 버블링</h1>
+<div class="one">1
+    <div class="two">2
+        <div class="three">3
+        </div>
+    </div>
+</div>
+   <script>
+       
+        var divs = document.querySelectorAll('div');
+         divs.forEach(function(div) {
+            div.addEventListener('click', logEvent);
+        });
+
+function logEvent(event) {
+    //event.stopPropagation();  이벤트 전파를 막아줌.
+	console.log(event.currentTarget.className);
+}  
+ </script>
+</body>
+</html>

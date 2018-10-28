@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+</head>
+<body>
+    <button>추가</button>
+    <script>
+        var button = document.querySelector('button');
+        
+        //표준 이벤트 모델
+        button.addEventListener('click', addItem);
+
+        function addItem(event) {
+            console.log(event);
+        }
+     </script>
+</body>
+</html>

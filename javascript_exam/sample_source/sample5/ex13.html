@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+        <div id="btn">클릭</div>
+        <script>
+            var header = document.getElementById('btn');
+
+            // 이벤트를 연결합니다.
+            function whenClick() { 
+                //누가 이벤트를 발생 시켰는지 알아옴.
+               alert(this); 
+               this.style.color = 'white';
+               this.style.backgroundColor = 'blue';
+            }
+            btn.onclick = whenClick;
+       
+        </script>
+</body>
+</html>

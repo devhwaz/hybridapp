@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+        <div id="btn">클릭</div>
+        <script>
+            var header = document.getElementById('btn');
+
+            // 이벤트를 연결합니다.
+            function whenClick(e) { 
+                let event = e || window.event;
+
+                document.body.innerHTML = "";
+                for(let key in event ){
+                    document.body.innerHTML += '<p>' + key + ': ' + event[key] + '</p>';
+                }
+             }
+            btn.onclick = whenClick;
+       
+        </script>
+</body>
+</html>
