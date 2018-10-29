@@ -3,5 +3,10 @@
 //끝가지 없으면 undefined 를 반환함. 
 
 const arr = [2,4,6,3,55,333,67];
-const findValue = arr.find(n => n%2==0);
+const findValue = arr.find(n => n%8==0);
 console.log(findValue);
+
+let value = arr.find(function(){
+    return n%2 == 0;
+});
+

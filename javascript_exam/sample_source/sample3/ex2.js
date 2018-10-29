@@ -10,10 +10,10 @@ var Foo = function( name, nick ) {
 };
 
 var foo1 = new Foo("강경미", "carami");
-    foo1.address = "서울시";
-    foo1.f = function(){
-        console.log(this.name);
-    }
+foo1.address = "서울시";
+foo1.f = function(){
+	console.log(this.name);
+}
 
 var foo2 = new Foo("강경미", "carami2");
 

@@ -5,5 +5,7 @@ document.getElementById();
 document.getElementsByClassName();
 document.getElementsByTagName();
 document.getElementsByTagNameNS();
-document.querySelector(); 
+document.querySelector();
+document.querySelectorAll();
+
 

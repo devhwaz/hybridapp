@@ -1,0 +1,30 @@
+﻿
+1. npm install http-server -g
+2. 특정 폴더에서 http-server
+   혹은
+   http-server 경로
+
+포트는 디폴트값이 8080 ,  web api 서버가 8080 포트를 사용하기때문에 -p 옵션을 이용해서 실행함. 
+   http-server -p 포트값  
+
+
+상세 설명
+
+
+https://github.com/indexzero/http-server
+
+
+
+web api 서버 실행 방법
+
+1.  jdk 8 설치 .  
+2.  환경변수 설정 
+   -JAVA_HOME
+   -CLASSPATH
+   -path  
+3. github에서 todoapp-0.0.1-SNAPSHOT.jar 파일 다운로드 
+
+4. cmd 창을 열고 todoapp-0.0.1-SNAPSHOT.jar 파일이 있는 경로로 이동  java -jar todoapp-0.0.1-SNAPSHOT.jar  
+
+
+
