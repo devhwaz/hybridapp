@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>aJax 호출</button>
+    <p></p>
+    <script>
+        const btn = document.querySelector("button");        
+        btn.addEventListener('click', ajaxTest);      
+        
+       function ajaxTest(){
+            const xhr = new XMLHttpRequest();
+            xhr.open("get","http://localhost:8080/todos");          
+            xhr.onreadystatechange = function(){
+               if(xhr.readyState === 4 ){
+                   if(xhr.status === 200){
+                       console.log(this.responseText);
+                     //  let respText = JSON.parse(this.responseText);
+                  
+                       document.querySelector("p").innerHTML = this.responseText;
+                   }else{
+                        document.querySelector("p").innerHTML = "fail";
+                   }
+               }
+           }
+           xhr.send();          
+       }
+    </script>
+</body>
+</html>

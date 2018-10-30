@@ -1,0 +1,4 @@
+{
+    "name":"kang",
+    "job":"singer"
+}

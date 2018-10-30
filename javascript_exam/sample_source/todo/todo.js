@@ -20,7 +20,7 @@ todoUl.addEventListener('click',function(event){
 });
 
  const inputbtn = document.querySelector('.add-button');
- const myinput = document.querySelector('#myInput');
+//  const myinput = document.querySelector('#myInput');
  
 
 inputbtn.addEventListener('click', function(){

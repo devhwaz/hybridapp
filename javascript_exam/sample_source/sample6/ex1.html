@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        function execute(){
+            document.querySelector("p").innerHTML = "hi!!";
+            console.log("hi");
+        }
+        let request = new XMLHttpRequest();
+        request.addEventListener("load", execute);
+        request.open("get","sample.txt");
+        request.send(null);            
+    </script>
+</body>
+</html>
