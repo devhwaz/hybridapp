@@ -1,18 +1,16 @@
 //초기데이터 (나중에는 서버에서 받아올 부분)
 let basicDatas = ['봄봄이랑 놀아주기','맛있는거 먹기','react 공부하기'];
-let inputvalue = '';
 
 for(let i = 0; i < basicDatas.length; i++){
     inputvalue = basicDatas[i];
-    todoItemAdd();
+    todoItemAdd(inputvalue);
 }
 
 
 let todoUl = document.querySelector("#todo-item-list");
 
 todoUl.addEventListener('click',function(event){
-    capture: true;
-     let enentTarget = event.target; 
+    let enentTarget = event.target; 
     if(event.target.tagName === 'LI' || event.target.tagName === 'SPAN'){
         if(event.target.tagName ==='LI'){
             enentTarget =enentTarget.querySelector('.todo-text');
@@ -32,10 +30,10 @@ inputbtn.addEventListener('click', function(){
         return;
     }
     document.querySelector('#myInput').value = '';
-    todoItemAdd();
+    todoItemAdd(inputvalue);   
 });
 
-function todoItemAdd(){   
+function todoItemAdd(inputvalue){   
     const li = document.createElement('li');
     li.className = "todo-item";
     const textSpan = document.createElement('SPAN');
@@ -50,13 +48,14 @@ function todoItemAdd(){
     const removetxt = document.createTextNode("\u00D7");
     removeSpan.className = "remove";
 
-    removeSpan.addEventListener('click',function(){
-        let div = this.parentElement;
-            div.style.display="none";
-    });
-
     removeSpan.appendChild(removetxt);
     li.appendChild(removeSpan);
+
+    removeSpan.addEventListener('click',function(){
+        let div = this.parentElement;
+        //    div.style.display="none";
+        div.remove();
+    });
 }
 
 

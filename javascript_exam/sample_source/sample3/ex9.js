@@ -24,6 +24,6 @@ class Foo {
     }
  }
  // 클래스 선언 이후에는 가능합니다.
- //Foo = "baz";
+    Foo = "baz";
  let foo1 = new Foo();
  console.log(foo1.foo);

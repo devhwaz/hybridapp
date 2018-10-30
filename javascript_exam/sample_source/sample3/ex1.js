@@ -31,7 +31,7 @@
     product3.type= '당절임';
     product3.ingredient= '망고, 설탕, 메타중아황산나트륨, 치자황색소';
     product3.countryOfOrigin= '필리핀';
-    console.log(Object.keys(product3));
+    console.log(Object.keys(product3).length);
     console.log(product3);
 
     //delete 연산자 - 속성을 삭제함.  (배열의 요소 삭제)
