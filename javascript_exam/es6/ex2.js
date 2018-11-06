@@ -23,3 +23,13 @@ function foo([a,b,c=300]=[100,200],{d,e}={d:undefined,e:5000}){
         console.log(a,b,c,d,e);
     }
 foo();
+
+const person =  {
+    name : 'kang',
+    age : 20
+};
+
+const {name, age } = person;
+
+console.log(name, age);
+
