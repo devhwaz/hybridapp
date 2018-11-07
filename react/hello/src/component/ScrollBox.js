@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 
-class ScrollerBox extends Component {  
-  
+class ScrollBox extends Component {  
+    state = {
+        test : '111'
+    }
+    sum = ()=>{
+        console.log('sum call!!')
+    }
+    scrollBottom = ()=>{
+        console.log(this.box);
+        const scrollHeight = this.box.scrollHeight;
+        const clientHeight = this.box.clientHeight;
+        this.box.scrollTop = scrollHeight - clientHeight;
+
+    }
     render() {
         const style={
             border : '1px solid black',
@@ -17,7 +29,8 @@ class ScrollerBox extends Component {
         }
         return (
             <div
-                style = {style}       
+                style = {style} 
+                ref = {(ref)=>this.box = ref}      
             >
                 <div style={innerStyle}></div>                
             </div>
@@ -25,4 +38,4 @@ class ScrollerBox extends Component {
     }
 }
 
-export default ScrollerBox;
+export default ScrollBox;

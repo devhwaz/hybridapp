@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import ValidationExam from './component/ValidationExma';
+import LifeCycleSample from './component/LifeCycleSample';
 
 class App extends Component {
-  
+state = {
+  color : '#000000'
+}  
   render() {   
     return (
-      <div>
-      <ValidationExam />
-     </div>
+      // <IterationExam />
+      <LifeCycleSample color={this.state.color}/>
     );
   }
 }
