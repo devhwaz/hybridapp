@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import LifeCycleSample from './component/LifeCycleSample';
+import Hello from './component/Hello';
 
 class App extends Component {
 state = {
@@ -9,7 +9,8 @@ state = {
   render() {   
     return (
       // <IterationExam />
-      <LifeCycleSample color={this.state.color}/>
+      // <LifeCycleSample color={this.state.color}/>
+      <Hello name="kang" />
     );
   }
 }
