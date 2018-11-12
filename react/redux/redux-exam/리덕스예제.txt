@@ -1,0 +1,209 @@
+필요한 모듈
+
+redux: 리덕스 모듈
+react-redux: 리액트 컴포넌트에서 리덕스를 사용하기위한 유용한 도구들
+
+1. src 디렉토리에 component 폴더를 생성 하고 Counter.js 파일을 생성한다. 
+
+import React from 'react';
+
+const Counter =  ({value})=>{
+    return (
+        <div>
+            <h1>{value}</h1>
+            <button >+</button>
+            <button>-</button>
+        </div>
+    );
+};
+
+export default Counter; 
+
+App.js 파일을 수정한다. 
+
+import React, { Component } from 'react';
+
+import Counter from './component/Counter';
+class App extends Component {
+  render() {
+    return (
+      <Counter value={0}></Counter>
+    );
+  }
+}
+
+export default App;
+
+내용을 확인한다.   숫자 0 과 + - 버튼이 보이면 성공!! 
+
+2. 숫자의 상태를 리덕스가 관리하게 하기위해서 다음을 추가한다. 
+
+액션타입선언, 액션 생성함수 선언, 초기값 설정, 리듀서 구현 . 
+
+sotre/modules/Counter.js 생성
+//액션 정의 
+const INCREMENT = 'INCREMENT'; //액션이 너무 많아 질때를 대비해서 'counter/INCREMENT' 이렇게 정의하기도 함. 
+const DECREMENT = 'DECREMENT'; 
+
+//액션 생성함수 정의 
+export const increment = () => ({type:INCREMENT});
+export const decrement = () => ({type:DECREMENT}); 
+
+//초기상태정의 
+const initialState = {
+    number : 0
+}
+
+//리듀서 정의 
+export default function counter (state = initialState, action){
+    switch(action.type){
+        case INCREMENT :
+            return {
+                ...satate,
+                number : state.number + 1
+            };
+        case DECREMENT : 
+            return {
+                ...state,
+                number : state.number -1 
+            };
+        default : 
+            return state;
+    }
+};
+
+3. combineReducers 로 리듀서 합치기   sotre/modules/index.js 생성
+import { combineReducers } from 'redux';
+import counter from './counter';
+
+export default combineReducers({
+  counter,
+  // 다른 리듀서를 만들게되면 여기에 넣어줌..
+});
+
+4. 스토어만들기 - createStore라는 함수를 이용한다. 파라미터로는 리듀서를 넣어준다. 하나의 애플리케이션 안에는 하나의 스토어가 있다.  
+src/index.js 에 딱 한 번 만들면 된다. 
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+//createStore와 루트 리듀서 불러오기 
+import { createStore } from 'redux';
+//combineReducers로 합치지 않았다면 아래와 같이. 
+//import CounterReducer from './store/modules/Counter'; 
+//합쳤다면은. 
+import rootReducer from './store/modules';
+
+//스토어 생성
+ const store = createStore(rootReducer);
+ //현재값 확인.
+ console.log(store.getState());
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+serviceWorker.unregister();
+
+5. 프로바이더 (react-redux에 포함)  사용하여 리액트 프로젝트에 스토어 연결 
+// **** (1) Provider 불러오기
+import { Provider } from 'react-redux';
+// **** (2) Provider 렌더링해서 기존의 App 감싸주기
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+6. connect 함수를 사용해서 컴포넌트에 스토어 연동 
+컴포넌트에 리덕스 스토어 안에 있는 값이나 액션 함수들을 연동한다.  이렇게 리덕스와 연동된 컴포넌트를 컨테이너 컴포넌트라고 부름. 
+ 단순히 props를 전달해주면 그대로 보여주는 컴포넌트들을 프리젠테이셔널 컴포넌트라고 부름. 
+
+프리젠테이셔널 컴포넌트와 컨테이너 컴포넌트, 이렇게 컴포넌트를 분류하는 방식은 리덕스의 창시자인 Dan Abramov(댄 아브라모프)
+ 가 제시한 방법이고,
+ 리덕스를 사용 할 때 이렇게 하면 좋다고 권장하긴 하지만, 무조건 따를 필요까지는 없습니다. 
+이러한 개발 방식에 있어서 최대 장점은 프리젠테이셔널 컴포넌트에선 UI 의 모양새에만 집중 할 수 있고, 
+컨테이너 컴포넌트쪽에서는 유저 인터랙션쪽에 집중 할 수 있다는 점이 있습니다.
+
+src/containers/CounterContainer.js 생성 
+
+import React, { Component } from 'react';
+import Counter from '../component/Counter';
+import { connect } from 'react-redux';
+import { increment, decrement} from '../store/modules/Counter';
+class CounterContainer extends Component {
+    handleIncrement = () =>{
+        this.props.increment();
+    };
+    handleDecrement = () =>{
+        this.props.decrement();
+    }
+    render() {
+        const {number} = this.props;
+        return (
+            <div>
+                <Counter
+                    value = {number}
+                    onIncrement = {this.handleIncrement}
+                    onDecrement = {this.handleDecrement}
+                />
+            </div>
+        );
+    }
+}
+//props로 넣어줄 스토어 상태값
+const mapStateToProps = ({counter}) => ({
+    number: counter.number
+});
+//props로 넣어줄 액션 생성함수 
+const mapDispatchToProps = dispatch => ({
+    increment : () => dispatch(increment()),
+    decrement : () => dispatch(decrement)
+});
+//컴포넌트에 리덕스 스토어를 연동해 줄때에는 connect함수 사용. 
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CounterContainer);
+
+connect 함수가 호출되면 반환되는 값은 특정 컴포넌트에 설정된 props 를 전달해주는 함수
+
+6-2 component/Counter.js 파일에 onIncrement, onDecrement  추가.. ( 버튼 이벤트에 등록한다.) 
+import React from 'react';
+
+const Counter = ({value,onIncrement,onDecrement}) =>{
+    return(
+        <div>
+            <h1>{value}</h1>
+            <button
+                onClick = {onIncrement}
+            >+</button>
+            <button
+                onClick = {onDecrement}
+            >-</button>
+        </div>
+    );
+};
+
+export default Counter;
+
+7. App.js 의 Counter 를 CounterContainer로 대체.. 
+import React, { Component } from 'react';
+
+import CounterContainer from './containers/CounterContainer';
+class App extends Component {
+  render() {
+    return (
+      <CounterContainer  />
+    );
+  }
+}
+export default App;
+
+참고 :  
+redux-actions: 이 라이브러리를 꼭 설치 할 필요는 없습니다.  액션이나 리듀서메서드들을 좀 더 효율적으로 만들어 볼 수 있도록 도와줍니다.  
+immer.js 
+immutable.js 
+위의 라이브러리들은 객체의 불변성을 유지하면서 객체를 수정하기가 수월하도록 도와줍니다.  
